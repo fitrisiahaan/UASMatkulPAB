@@ -11,6 +11,7 @@ import SearchScreen from './screens/JobListScreen.js';
 import FilterScreen from './screens/FilterScreen';
 import JobDetailScreen from './screens/JobDetailScreen.js';
 import HomeCompanyScreen from './screens/HomeCompanyScreen.js';
+import LoginCompanyScreen from './screens/LoginCompanyScreen.js';
 
 
 const Stack = createNativeStackNavigator();
@@ -29,6 +30,7 @@ export default function App() {
           <Stack.Screen name="Filter" component={FilterScreen} options={{ headerShown: false }} />
           <Stack.Screen name="JobDetail" component={JobDetailScreen} options={{ headerShown: false }} />
           <Stack.Screen name="HomeCompany" component={HomeCompanyScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="LoginCompany" component={LoginCompanyScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
