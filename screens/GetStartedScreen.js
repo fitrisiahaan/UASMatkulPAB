@@ -36,6 +36,16 @@ const GetStartedScreen = ({ navigation }) => {
             >
               Login
             </Button>
+            <Button
+              mt={2}
+              mx={60}
+              rounded={18}
+              colorScheme="danger"
+              size="md"
+              onPress={() => navigation.navigate('LoginCompany')}
+            >
+              Login
+            </Button>
               <Center mx="20">
               <Text fontSize="xs" textAlign="center">By signin or logging in, I do accept
 Terms of Services and Privacy Policy.</Text>
