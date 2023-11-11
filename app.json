@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "UTSFrontEnd",
-    "slug": "UTSFrontEnd",
+    "name": "UTSMatkulPAB",
+    "slug": "UTSMatkulPAB",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

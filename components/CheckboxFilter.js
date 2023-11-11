@@ -1,51 +1,45 @@
+// CheckboxFilter.js
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { VStack, Checkbox, Text } from 'native-base';
 
-const CheckboxFilter = () => {
-    const [selectedOptions, setSelectedOptions] = useState([]);
+const CheckboxFilter = ({ onFilterChange }) => {
+  const initialJobTypes = [
+    { label: 'Fulltime', value: false },
+    { label: 'Internship', value: false },
+    { label: 'Part-time', value: false },
+    { label: 'Freelance', value: false },
+    { label: 'Asisten Praktikum', value: false },
+  ];
 
-    const handleOptionSelect = (option) => {
-        if (selectedOptions.includes(option)) {
-            setSelectedOptions(selectedOptions.filter((item) => item !== option));
-        } else {
-            setSelectedOptions([...selectedOptions, option]);
-        }
-    };
+  const [selectedJobTypes, setSelectedJobTypes] = useState(initialJobTypes);
 
-    return (
-        <View style={styles.container}>
-            <Text style={styles.header}>Job Type</Text>
-            <TouchableOpacity onPress={() => handleOptionSelect('option1')}>
-                <Text>{selectedOptions.includes('option1') ? <Icon name="check-square-o" size={16} color="#000" /> : <Icon name="square-o" size={16} color="#000" />} Apprenticeship</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => handleOptionSelect('option2')}>
-                <Text>{selectedOptions.includes('option2') ? <Icon name="check-square-o" size={16} color="#000" /> : <Icon name="square-o" size={16} color="#000" />} Part-time</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => handleOptionSelect('option3')}>
-                <Text>{selectedOptions.includes('option3') ? <Icon name="check-square-o" size={16} color="#000" /> : <Icon name="square-o" size={16} color="#000" />} Full time</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => handleOptionSelect('option4')}>
-                <Text>{selectedOptions.includes('option4') ? <Icon name="check-square-o" size={16} color="#000" /> : <Icon name="square-o" size={16} color="#000" />} Contarct</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => handleOptionSelect('option5')}>
-                <Text>{selectedOptions.includes('option5') ? <Icon name="check-square-o" size={16} color="#000" /> : <Icon name="square-o" size={16} color="#000" />} Project-based</Text>
-            </TouchableOpacity>
-        </View>
-    );
+  const handleCheckboxChange = (index) => {
+    const updatedSelection = [...selectedJobTypes];
+    updatedSelection[index].value = !updatedSelection[index].value;
+
+    setSelectedJobTypes(updatedSelection);
+
+    // Callback to parent component with updated job types
+    onFilterChange(updatedSelection.filter((jobType) => jobType.value).map((jobType) => jobType.label));
+  };
+
+  return (
+    <VStack space={2} alignItems="flex-start" pl={5}>
+      <Text fontSize="md" fontWeight="bold">
+        Job Type
+      </Text>
+      {selectedJobTypes.map((jobType, index) => (
+        <Checkbox
+          key={index}
+          value={jobType.label}
+          isChecked={jobType.value}
+          onChange={() => handleCheckboxChange(index)}
+        >
+          {jobType.label}
+        </Checkbox>
+      ))}
+    </VStack>
+  );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        borderWidth: 1,
-        borderRadius: 10,
-        padding: 10,
-        margin: 15,
-    },
-    header: {
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
-});
 
 export default CheckboxFilter;

@@ -10,13 +10,13 @@ const GetStartedScreen = ({ navigation }) => {
           uri: "https://wallpaperaccess.com/full/317501.jpg"
         }} alt="Alternate Text" size="xl" />
         </Center>
-        <Center mb="40" mt="20">
+        <Center mb="30" mt="20">
             <Text mx="10" textAlign="center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam.</Text>
           </Center>
             <Button
-              mt={8}
+              mt={7}
               mx={60}
               variant={"outline"}
               rounded={18}
