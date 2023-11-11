@@ -1,93 +1,51 @@
-import React, { useState, useEffect } from "react";
-import {
-  Container,
-  Header,
-  Title,
-  Left,
-  Icon,
-  Right,
-  Button,
-  Body,
-  Content,
-  Text,
-  Form,
-  Item,
-  Input,
-  Label,
-} from "native-base";
-import { StackNavigator } from "react-navigation";
+import React from 'react';
+import { View } from 'react-native';
+import { FormControl, Input, Heading, Text, Button, Center, Box, Link } from 'native-base';
 
-const SignupScreen = ({ navigation }) => {
-  const [companyName, setCompanyName] = useState("");
-  const [emailAddress, setEmailAddress] = useState("");
-  const [password, setPassword] = useState("");
-
-  useEffect(() => {
-    // Set default values for state
-    setCompanyName("PT. Contoh Perusahaan");
-    setEmailAddress("contoh@perusahaan.com");
-    setPassword("rahasia");
-  }, []);
-
-  const onSubmit = () => {
-    // Submit form data
-    navigation.navigate("Home");
-  };
-
+const SignInCompanyScreen = ({ navigation }) => {
   return (
-    <Container>
-      <Header>
-        <Title>Sign Up</Title>
-      </Header>
-      <Body>
-        <Form>
-          <Item floatingLabel>
-            <Label>Company Name</Label>
-            <Input
-              value={companyName}
-              onChangeText={text => setCompanyName(text)}
-              placeholder={"Nama Perusahaan"}
-            />
-          </Item>
-          <Item floatingLabel>
-            <Label>Email Address</Label>
-            <Input
-              value={emailAddress}
-              onChangeText={text => setEmailAddress(text)}
-              placeholder={"Alamat Email"}
-            />
-          </Item>
-          <Item floatingLabel last>
-            <Label>Password</Label>
-            <Input
-              value={password}
-              onChangeText={text => setPassword(text)}
-              placeholder={"Kata Sandi"}
-              secureTextEntry={true}
-            />
-          </Item>
-          <Button onPress={onSubmit}>
-            <Text>Sign Up</Text>
-          </Button>
-        </Form>
-      </Body>
-    </Container>
+    <View>
+      <Center >
+        <Heading paddingTop="100">Create New Account!</Heading>
+        <Text fontSize="xs">Lorem ipsum dolor sit amet, consectetur</Text>
+
+          <FormControl isRequired isInvalid paddingTop="90" paddingX="10" variant="outline">
+            <FormControl.Label>Company Name</FormControl.Label>
+            <Input p={2} placeholder="Company Name" />
+            <FormControl.Label>Email Address</FormControl.Label>
+            <Input p={2} placeholder="Email" />
+            <FormControl.Label>Password</FormControl.Label>
+            <Input p={2} placeholder="Password" />
+            <FormControl.ErrorMessage>Something is wrong.</FormControl.ErrorMessage>
+            <Button
+              mt={4}
+              mx={8}
+              rounded={15}
+              colorScheme="danger"
+              size="md"
+              onPress={() => {
+                console.log('hello');
+              }}
+            >
+              Start Your Career
+            </Button>
+          </FormControl>
+          <Box alignItems="center" paddingTop="140">
+            <Text mx="16"> Sign In New Account</Text>
+            <Text mx="16">
+              Already have an account?{" "}
+              <Link onPress={() => navigation.navigate('Login')} isExternal _text={{
+              color: "red.400"
+            }} mt={-0.5} _web={{
+              mb: -2
+            }}>
+                Sign Up
+              </Link>
+            </Text>
+        </Box>;
+      </Center>
+    </View>
   );
 };
 
-const App = () => {
-  return (
-    <StackNavigator initialRouteName="Signup">
-      <StackNavigator.Screen
-        name="Signup"
-        component={SignupScreen}
-      />
-      <StackNavigator.Screen
-        name="Home"
-        component={() => <Text>Home Screen</Text>}
-      />
-    </StackNavigator>
-  );
-};
-
-export default App;
+export default SignInCompanyScreen;
