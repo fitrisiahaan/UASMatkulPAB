@@ -33,7 +33,7 @@ const CheckboxFilter = () => {
             </TouchableOpacity>
         </View>
     );
-};
+};                                                                                                                        
 
 const styles = StyleSheet.create({
     container: {

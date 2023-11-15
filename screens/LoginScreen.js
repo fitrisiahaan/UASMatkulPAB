@@ -6,7 +6,7 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View>
       <Center >
-        <Heading paddingTop="100">Login to Your Account!</Heading>
+        <Heading paddingTop="100">Login sebagai mahasiswa !</Heading>
         <Text fontSize="xs">Lorem ipsum dolor sit amet, consectetur</Text>
 
           <FormControl isRequired isInvalid paddingTop="90" paddingX="10">

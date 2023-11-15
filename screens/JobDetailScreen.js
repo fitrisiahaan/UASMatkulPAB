@@ -1,6 +1,6 @@
 import React from "react";
 import { View, ScrollView, TouchableOpacity } from "react-native";
-import { Box, Image, Text, HStack, Container, Button, el } from "native-base";
+import { Box, Image, Text, HStack, Container, Button, } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import TabsNavigation from "../components/TabsNavigation";
 

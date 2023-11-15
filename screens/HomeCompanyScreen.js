@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, Image } from "react-native";
+import { View, ScrollView, Image, TouchableOpacity } from "react-native";
 import { Heading, Container, Flex, Box, HStack } from "native-base";
 import TabsNavigation from "../components/TabsNavigation";
 import CardHomeCompany from "../components/CardHomeCompany";
@@ -17,12 +17,16 @@ const HomeCompanyScreen = ({ navigation }) => {
           </Box>
 
           {/* Gambar rounded (logo) */}
-          <Image
-            source={{
-              uri: "https://lokerbumn.com/wp-content/uploads/2022/06/Telkomsigma.jpg",
-            }}
-            style={{ width: 80, height: 80, borderRadius: 40 }}
-          />
+          <TouchableOpacity
+            onPress={() => navigation.navigate("CompanyProfile")}
+          >
+            <Image
+              source={{
+                uri: "https://lokerbumn.com/wp-content/uploads/2022/06/Telkomsigma.jpg",
+              }}
+              style={{ width: 80, height: 80, borderRadius: 40 }}
+            />
+          </TouchableOpacity>
         </HStack>
       </Container>
       <ScrollView style={{ flex: 1, marginBottom: 5 }}>

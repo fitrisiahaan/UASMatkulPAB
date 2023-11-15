@@ -1,3 +1,4 @@
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useState, useEffect } from "react";
 import {
   Container,
@@ -14,24 +15,24 @@ import {
   Card,
   CardItem,
   Subtitle,
-  Body,
-  Right,
-  Icon,
+  View,
 } from "native-base";
-import { StackNavigator } from "react-navigation";
 
-const CompanyProfileScreen = ({ navigation, company }) => {
+const Stack = createNativeStackNavigator(); // Create a Stack Navigator
+
+const CompanyProfileScreen = ({ navigation, route }) => {
+  const [company, setCompany] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Get company data from backend
-    fetch("https://example.com/api/companies/" + company.id)
+    fetch("https://example.com/api/companies/" + route.params.companyId)
       .then((response) => response.json())
       .then((data) => {
         setCompany(data);
         setIsLoading(false);
       });
-  }, [company]);
+  }, []);
 
   const onBack = () => {
     navigation.goBack();
@@ -42,10 +43,7 @@ const CompanyProfileScreen = ({ navigation, company }) => {
       <Header>
         <Title>Company Profile</Title>
         <Left>
-          <Button
-            onPress={onBack}
-            icon={<Icon name="arrow-back" />}
-          />
+          <Button onPress={onBack} icon={<Icon name="arrow-back" />} />
         </Left>
       </Header>
       <Body>
@@ -60,26 +58,7 @@ const CompanyProfileScreen = ({ navigation, company }) => {
               <Subtitle>Company Name</Subtitle>
               <Body>{company.name}</Body>
             </CardItem>
-            <CardItem>
-              <Subtitle>Location</Subtitle>
-              <Body>{company.location}</Body>
-            </CardItem>
-            <CardItem>
-              <Subtitle>Email Address</Subtitle>
-              <Body>{company.email}</Body>
-            </CardItem>
-            <CardItem>
-              <Subtitle>Phone Number</Subtitle>
-              <Body>{company.phone}</Body>
-            </CardItem>
-            <CardItem>
-              <Subtitle>Type</Subtitle>
-              <Body>{company.type}</Body>
-            </CardItem>
-            <CardItem>
-              <Subtitle>About</Subtitle>
-              <Body>{company.about}</Body>
-            </CardItem>
+            {/* ... other CardItems */}
           </Card>
         )}
       </Body>
@@ -87,15 +66,4 @@ const CompanyProfileScreen = ({ navigation, company }) => {
   );
 };
 
-const App = () => {
-  return (
-    <StackNavigator initialRouteName="CompanyProfile">
-      <StackNavigator.Screen
-        name="CompanyProfile"
-        component={CompanyProfileScreen}
-      />
-    </StackNavigator>
-  );
-};
-
-export default App;
+export default CompanyProfileScreen;

@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const RadioButtonFilter = () => {
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState(null); //state
 
     const handleOptionSelect = (option) => {
         setSelectedOption(option === selectedOption ? null : option);
