@@ -6,15 +6,15 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View>
       <Center >
-        <Heading paddingTop="100">Login sebagai mahasiswa !</Heading>
-        <Text fontSize="xs">Lorem ipsum dolor sit amet, consectetur</Text>
+        <Heading paddingTop="100">Login mahasiswa </Heading>
+        <Text fontSize="xs">silahkan login dengan memasukkan Email dan kata sandi anda</Text>
 
           <FormControl isRequired isInvalid paddingTop="90" paddingX="10">
-            <FormControl.Label>Email Address</FormControl.Label>
+            <FormControl.Label>Email </FormControl.Label>
             <Input p={2} placeholder="Email" />
-            <FormControl.Label>Password</FormControl.Label>
+            <FormControl.Label>Kata Sandi</FormControl.Label>
             <Input p={2} placeholder="Password" />
-            <FormControl.ErrorMessage>Something is wrong.</FormControl.ErrorMessage>
+            {/* <FormControl.ErrorMessage>Something is wrong.</FormControl.ErrorMessage> */}
             <Button
               mt={8}
               mx={8}
@@ -27,9 +27,9 @@ const LoginScreen = ({ navigation }) => {
             </Button>
           </FormControl>
           <Box alignItems="center" paddingTop="210">
-            <Text mx="16"> Log In to My Account</Text>
+            <Text mx="16"> Log in ke akun saya</Text>
             <Text mx="16">
-              Don't have an account?{" "}
+              Apakah anda punya akun ?{" "}
               <Link onPress={() => navigation.navigate('Register')} isExternal _text={{
               color: "red.400"
             }} mt={-0.5} _web={{

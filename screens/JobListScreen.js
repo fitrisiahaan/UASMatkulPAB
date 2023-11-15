@@ -44,8 +44,8 @@ const JobListScreen = ({ navigation }) => {
   return (
     <View style={{ flex: 1 }}>
       <Container paddingTop={60}>
-        <Heading px={30}>Let's</Heading>
-        <Heading px={30}>Find Your Perfect Jobs</Heading>
+        <Heading px={30}>AYO</Heading>
+        <Heading px={30}>Temukan Karir Impian Mu</Heading>
       </Container>
       <SearchBar navigation={navigation} />
       <ScrollView style={{ flex: 1 }}>
